@@ -1,0 +1,5 @@
+  File "vae-grid.py", line 120
+    losses.append(0)
+         ^
+IndentationError: expected an indented block
+srun: error: gpu6: task 0: Exited with exit code 1

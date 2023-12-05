@@ -1,0 +1,66 @@
+/home/dongx/anaconda3/envs/env_pytorch/lib/python3.6/site-packages/torchvision/datasets/mnist.py:498: UserWarning: The given NumPy array is not writeable, and PyTorch does not support non-writeable tensors. This means you can write to the underlying (supposedly non-writeable) NumPy array using the tensor. You may want to copy the array to protect its data or make it writeable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at  /opt/conda/conda-bld/pytorch_1623448272031/work/torch/csrc/utils/tensor_numpy.cpp:180.)
+  return torch.from_numpy(parsed.astype(m[2], copy=False)).view(*s)
+cuda:0
+Epoch [1 / 50] average reconstruction error: 17776.035150
+Epoch [2 / 50] average reconstruction error: 15363.589840
+Epoch [3 / 50] average reconstruction error: 14982.822486
+Epoch [4 / 50] average reconstruction error: 14773.087170
+Epoch [5 / 50] average reconstruction error: 14618.339381
+Epoch [6 / 50] average reconstruction error: 14490.422799
+Epoch [7 / 50] average reconstruction error: 14385.490912
+Epoch [8 / 50] average reconstruction error: 14289.360371
+Epoch [9 / 50] average reconstruction error: 14209.775629
+Epoch [10 / 50] average reconstruction error: 14137.220703
+Epoch [11 / 50] average reconstruction error: 14073.562570
+Epoch [12 / 50] average reconstruction error: 14022.883262
+Epoch [13 / 50] average reconstruction error: 13964.329240
+Epoch [14 / 50] average reconstruction error: 13920.941203
+Epoch [15 / 50] average reconstruction error: 13876.859711
+Epoch [16 / 50] average reconstruction error: 13835.911576
+Epoch [17 / 50] average reconstruction error: 13798.433139
+Epoch [18 / 50] average reconstruction error: 13762.112996
+Epoch [19 / 50] average reconstruction error: 13731.034820
+Epoch [20 / 50] average reconstruction error: 13701.328469
+Epoch [21 / 50] average reconstruction error: 13670.904881
+Epoch [22 / 50] average reconstruction error: 13643.963971
+Epoch [23 / 50] average reconstruction error: 13625.265865
+Epoch [24 / 50] average reconstruction error: 13595.118178
+Epoch [25 / 50] average reconstruction error: 13574.006621
+Epoch [26 / 50] average reconstruction error: 13555.816215
+Epoch [27 / 50] average reconstruction error: 13535.323141
+Epoch [28 / 50] average reconstruction error: 13515.175174
+Epoch [29 / 50] average reconstruction error: 13497.762020
+Epoch [30 / 50] average reconstruction error: 13476.552229
+Epoch [31 / 50] average reconstruction error: 13464.829242
+Epoch [32 / 50] average reconstruction error: 13451.664258
+Epoch [33 / 50] average reconstruction error: 13433.693572
+Epoch [34 / 50] average reconstruction error: 13417.128627
+Epoch [35 / 50] average reconstruction error: 13408.095164
+Epoch [36 / 50] average reconstruction error: 13384.155020
+Epoch [37 / 50] average reconstruction error: 13376.628445
+Epoch [38 / 50] average reconstruction error: 13356.777311
+Epoch [39 / 50] average reconstruction error: 13349.127326
+Epoch [40 / 50] average reconstruction error: 13333.879246
+Epoch [41 / 50] average reconstruction error: 13327.943035
+Epoch [42 / 50] average reconstruction error: 13316.409201
+Epoch [43 / 50] average reconstruction error: 13305.564959
+Epoch [44 / 50] average reconstruction error: 13292.783723
+Epoch [45 / 50] average reconstruction error: 13281.314963
+Epoch [46 / 50] average reconstruction error: 13271.900885
+Epoch [47 / 50] average reconstruction error: 13262.941203
+Epoch [48 / 50] average reconstruction error: 13252.671086
+Epoch [49 / 50] average reconstruction error: 13247.480992
+Epoch [50 / 50] average reconstruction error: 13235.228688
+Traceback (most recent call last):
+  File "vae-grid.py", line 155, in <module>
+    run_sim(latent_dim=latent_dim, num_train_samples= 50000)
+  File "vae-grid.py", line 151, in run_sim
+    torch.save(vae.state_dict(), model_save_path)
+  File "/home/dongx/anaconda3/envs/env_pytorch/lib/python3.6/site-packages/torch/serialization.py", line 376, in save
+    with _open_file_like(f, 'wb') as opened_file:
+  File "/home/dongx/anaconda3/envs/env_pytorch/lib/python3.6/site-packages/torch/serialization.py", line 230, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/home/dongx/anaconda3/envs/env_pytorch/lib/python3.6/site-packages/torch/serialization.py", line 211, in __init__
+    super(_open_file, self).__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: '/content/vae_model_latent_3.pth'
+srun: error: gpu6: task 0: Exited with exit code 1
