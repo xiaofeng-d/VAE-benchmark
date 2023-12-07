@@ -17,7 +17,7 @@ from torchsummary import summary
 
 from sklearn.decomposition import PCA
 
-def run_sim(latent_dim, num_train_samples, flag='train'):
+def run_sim(latent_dim, num_train_samples, flag='train', e_hidden=500, d_hidden=500):
 
 
     # Define the number of training samples you want to use
@@ -63,7 +63,7 @@ def run_sim(latent_dim, num_train_samples, flag='train'):
     epochs = 200          # Number of sweeps through the whole dataset
 
     class VAE(nn.Module):
-        def __init__(self, latent_dim, e_hidden=500, d_hidden=500):
+        def __init__(self, latent_dim):
             """Variational Auto-Encoder Class"""
             super(VAE, self).__init__()
             # Encoding Layers
@@ -156,10 +156,13 @@ def run_sim(latent_dim, num_train_samples, flag='train'):
 
 
         # After your training loop, save the model's state_dict
-        model_save_path = './content/vae_model_'+'latent_'+str(latent_dim)+'.pth'  # Temporary path in Google Colab
-        torch.save(vae.state_dict(), model_save_path)
+        # model_save_path = './content/vae_model_'+'latent_'+str(latent_dim)+'.pth'  # Temporary path in Google Colab
+        # torch.save(vae.state_dict(), model_save_path)
+        model_save_path = './content/vae_model_'+'latent_'+str(latent_dim)+'_ehidden_'+str(e_hidden)+'_dhidden_'+str(d_hidden)+'.pth'  
 
-        np.save('./loss_data/'+str(latent_dim),losses)
+        torch.save(vae.state_dict(), model_save_path)
+        np.save('./loss_data/'+str(latent_dim)+'_ehidden_'+str(e_hidden)+'_dhidden_'+str(d_hidden),losses)
+
 
     # Visualize
     if flag == 'test':
@@ -217,14 +220,20 @@ def run_sim(latent_dim, num_train_samples, flag='train'):
         plt.ylabel('Latent Variable 2')
         plt.title('Latent Space Visualization')
         plt.legend()
-        plt.savefig('./latentvis_'+str(latent_dim)+'.png',dpi=300)
+        plt.savefig('./latentvis_'+str(latent_dim)+'_ehidden_'+str(e_hidden)+'_dhidden_'+str(d_hidden)+'.png',dpi=300)
 
 
 # for latent_dim in [3,5,10,20,200]:
 #     run_sim(latent_dim=latent_dim, num_train_samples= 60000,flag='train')
 
-# for latent_dim in [3,5,10,20,200]: #[2]:
+# for latent_dim in [2]: #: #[3,5,10,20,200]
 #     run_sim(latent_dim=latent_dim, num_train_samples= 60000,flag='test')
 
-for latent_dim in [2]:
-    run_sim(latent_dim=latent_dim, num_train_samples= 60000,flag='train')
+# for latent_dim in [2]:
+#     run_sim(latent_dim=latent_dim, num_train_samples= 60000,flag='train')
+
+if __name__ == '__main__':
+
+    for hidden_dim in  [50, 100, 200, 400, 800]:
+        print('------now testing hidden dimensions: ', hidden_dim)
+        run_sim(latent_dim=latent_dim, num_train_samples= 60000,flag='train', e_hidden=hidden_dim, d_hidden= hidden_dim)

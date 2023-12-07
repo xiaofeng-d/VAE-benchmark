@@ -16,5 +16,7 @@ for latent_dim in [3,5,10,20,200]:
     print(loss)
 plt.ylim([-150,-100])
 plt.legend()
+plt.xlabel('# of training samples')
+plt.ylabel('$\mathcal{L}$')
 
 plt.savefig('lossplot.png')

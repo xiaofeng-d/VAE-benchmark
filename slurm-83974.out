@@ -1,0 +1,21 @@
+/home/dongx/anaconda3/envs/env_pytorch/lib/python3.6/site-packages/torchvision/datasets/mnist.py:498: UserWarning: The given NumPy array is not writeable, and PyTorch does not support non-writeable tensors. This means you can write to the underlying (supposedly non-writeable) NumPy array using the tensor. You may want to copy the array to protect its data or make it writeable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at  /opt/conda/conda-bld/pytorch_1623448272031/work/torch/csrc/utils/tensor_numpy.cpp:180.)
+  return torch.from_numpy(parsed.astype(m[2], copy=False)).view(*s)
+cuda:0
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+            Linear-1                  [-1, 500]         392,500
+            Linear-2                    [-1, 2]           1,002
+            Linear-3                    [-1, 2]           1,002
+            Linear-4                  [-1, 500]           1,500
+            Linear-5                  [-1, 784]         392,784
+================================================================
+Total params: 788,788
+Trainable params: 788,788
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 0.00
+Forward/backward pass size (MB): 0.01
+Params size (MB): 3.01
+Estimated Total Size (MB): 3.03
+----------------------------------------------------------------
